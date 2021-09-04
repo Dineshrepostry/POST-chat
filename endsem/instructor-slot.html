@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" class="student-details" method="post"   >
+        <h2>Slot booking- Student</h2>
+        <select name="slot">
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+        </select>
+    </form>
+
+    <div>
+        <?php
+            include "config.php";
+            // $name=$_POST["name"];
+            // $email=$_POST["email"];
+            // $register=$_POST["register"];
+            // $time=$_POST["time"];
+           
+            $sql="SELECT * FROM `slot` WHERE `time`='tuesday'";
+            $result=mysqli_query($conn,$sql);
+            $num=mysqli_num_rows($result);
+            echo "<div><span>Tuesday</span><span>$num</span></div>";
+
+
+            $sql="SELECT * FROM `slot` WHERE `time`='wednesday'";
+            $result=mysqli_query($conn,$sql);
+            $num=mysqli_num_rows($result);
+            echo "<div><span>Wednesday</span><span>$num</span></div>";
+
+
+            $sql="SELECT * FROM `slot` WHERE `time`='thursday'";
+            $result=mysqli_query($conn,$sql);
+            $num=mysqli_num_rows($result);
+            echo "<div><span>Thursday</span><span>$num</span></div>";
+
+            mysqli_close($conn);
+
+        //     }else{
+
+        //         $sql1="SELECT * FROM `slot` WHERE `time`='$time'";
+        //         $result1=mysqli_query($conn,$sql1);
+        //         if(mysqli_num_rows($result1)<=6){
+        //         $query="INSERT INTO `slot`(`name`, `register`, `email`, `time`) VALUES ('$name','$register','$email','$time')";
+        //         $result=mysqli_query($conn,$query);
+        //         echo "<script>alert('slot booked')</script>";
+        //         }
+        //         else{
+        //             echo "<script>alert('all slots booked on $time')</script>";
+        //         }
+        //     }
+        //     mysqli_close($conn);
+        // }
+
+        ?>
+    </div>
+    <?php
+            if(array_key_exists("submit",$_POST)){
+                include "config.php";
+                $name=$_POST["name"];
+                $email=$_POST["email"];
+                $register=$_POST["register"];
+                $time=$_POST["time"];
+                $sql="SELECT * FROM `slot` WHERE `name`='$name'";
+                $result=mysqli_query($conn,$sql);
+               
+                if(mysqli_num_rows($result)==1){
+                        echo "<script>alert('You have already booked a slot and cannot book again!')</script>";
+                }else{
+
+                    $sql1="SELECT * FROM `slot` WHERE `time`='$time'";
+                    $result1=mysqli_query($conn,$sql1);
+                    if(mysqli_num_rows($result1)<=6){
+                    $query="INSERT INTO `slot`(`name`, `register`, `email`, `time`) VALUES ('$name','$register','$email','$time')";
+                    $result=mysqli_query($conn,$query);
+                    echo "<script>alert('slot booked')</script>";
+                    }
+                    else{
+                        echo "<script>alert('all slots booked on $time')</script>";
+                    }
+                }
+                mysqli_close($conn);
+            }
+
+    ?>
+    <script>
+        //  window.location="slot.php";
+    </script>
+</body>
+</html>

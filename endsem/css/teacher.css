@@ -1,0 +1,104 @@
+body{
+    background-color: rgb(27,27,27);
+    font-family: sans-serif;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    color:white;  
+    height: 100vh;
+}
+.student-details{
+        width:50%;
+        display: flex;
+        flex-direction:column;
+        justify-content: space-around;
+        align-items: center;
+        padding:20px;
+        height:30vh;
+        border:1px solid grey;
+
+}
+.bookings{
+    width:100%;
+    padding:100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table{
+    width:80%
+}
+table,td,th{
+    border:1px solid grey;
+    border-collapse: collapse;
+    padding:10px;
+
+}
+
+.btn{
+    border:1px solid grey;
+    outline: none;
+    width:100px;
+    background-color: rgb(27,27,27);
+    border-radius: 10px;
+    color:white;
+    transition:0.5s;
+
+
+    
+}
+
+.btn:hover{
+    border:1px solid grey;
+    outline: none;
+    width:100px;
+    background-color: white;
+    border-radius: 10px;
+    color:black;
+    transition:0.5s;
+
+    
+}
+h2{
+    text-decoration: underline;
+}
+
+.avail{
+    padding:100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:center ;
+   
+    width:50%;
+}
+.student{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:80%;
+    padding:10px;
+}
+.feild{
+    border:none;
+    border-bottom:1px solid blue;
+    outline:none;
+    color:white;
+    background-color: rgb(27,27,27);
+    width:40%;;
+    transition: 0.5s;
+}
+.feild:focus{
+    border:none;
+    border-bottom:1px solid red;
+    outline:none;
+    color:white;
+    transition: 0.5s;
+    background-color: rgb(27,27,27);
+    border-radius: 10px;
+    width:40%;;
+}
+th{
+    color:hotpink
+}

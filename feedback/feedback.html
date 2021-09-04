@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Feedback</title>
+        <meta name="author" content="Dinesh 2020115029">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="feedback1.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/png" href="../images/favicon.png"/>
+    </head>
+    <body >
+        <header>
+			<div class="title">
+			
+				<img src="../images/logo1.png" class="logo" alt="logo" width="200" height="50" />
+			</div>
+		<nav id="menu">
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="#">Feedback</a></li>
+				<li><a href="../policies/Policies.html">Privacy</a></li>
+				<li><a href="../documentation/documentation.html">Documentation</a></li>
+			</ul>
+		</nav>
+		</header>
+        <div class="outer">
+            <div class="feed" id="feed">
+
+            </div>
+            <div class="feedback">
+                <input type="text" placeholder="Enter your name" id="nm" class="feild" />
+                <input type="text" placeholder="Enter your feedback" id="f" class="feild" />
+                <button id="sub" class="btn">Post</button>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $(".feed").load("../php/getfeed.php");
+                $("#sub").click(function(){
+                    var name = $("#nm").val();
+                    var feed = $("#f").val();
+
+                    $.post("../php/writefeed.php",{name:name , feed: feed},function(d){
+                        $(".feed").load("../php/getfeed.php");
+                    });
+                   
+                });
+            });
+        </script>
+    </body>
+</html>
